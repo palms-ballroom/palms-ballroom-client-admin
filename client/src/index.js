@@ -7,6 +7,7 @@ import "flowbite";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import "flowbite";
 
 ReactDOM.render(
   <React.StrictMode>

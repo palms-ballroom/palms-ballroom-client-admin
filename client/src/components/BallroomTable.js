@@ -9,6 +9,8 @@ import Card from "@material-tailwind/react/Card";
 import CardHeader from "@material-tailwind/react/CardHeader";
 import CardBody from "@material-tailwind/react/CardBody";
 
+import Pagination from "./Pagination";
+
 export default function BallroomTable() {
   const ballrooms = useSelector((state) => state.ballroomReducer.ballrooms);
   const dispatch = useDispatch();
@@ -21,6 +23,15 @@ export default function BallroomTable() {
   useEffect(() => {
     dispatch(fetchBallrooms());
   }, [dispatch]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [ballroomsPerPage] = useState(5);
+
+  const indexOfLastPost = currentPage * ballroomsPerPage;
+  const indexOfFirstPost = indexOfLastPost - ballroomsPerPage;
+  const currentBallrooms = ballrooms.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="px-3 md:px-8 h-auto pt-14 pb-14 container">
@@ -64,7 +75,7 @@ export default function BallroomTable() {
                     className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
                   >
                     {!ballroomsLoading &&
-                      ballrooms.map((ballroom) => {
+                      currentBallrooms.map((ballroom) => {
                         return (
                           <BallroomRow
                             setModalOn={setModalOn}
@@ -77,6 +88,11 @@ export default function BallroomTable() {
                   </tbody>
                 </table>
               </div>
+              <Pagination
+                ballroomsPerPage={ballroomsPerPage}
+                totalBallrooms={ballrooms.length}
+                paginate={paginate}
+              />
             </CardBody>
           </Card>
         </div>
