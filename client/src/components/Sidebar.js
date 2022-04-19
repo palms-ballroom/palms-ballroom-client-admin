@@ -2,7 +2,7 @@ import { useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import Icon from "@material-tailwind/react/Icon";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../PALMS.png";
+import logo from "../Logo-Palms.png";
 
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState("-left-64");
@@ -22,7 +22,7 @@ export default function Sidebar() {
         <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
           <img
             src={logo}
-            className="w-full h-full rounded-lg shadow-lg"
+            // className="w-full h-full rounded-lg shadow-lg"
             alt="Flowbite Logo"
           />
           <div className="flex flex-col">

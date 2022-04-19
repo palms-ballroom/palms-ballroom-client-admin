@@ -12,7 +12,6 @@ const initialState = {
     images1: "",
     images2: "",
     images3: "",
-    images4: "",
   },
 };
 
@@ -29,7 +28,6 @@ export default function imageReducer(state = initialState, action) {
         images1: action.payload.images1,
         images2: action.payload.images2,
         images3: action.payload.images3,
-        images4: action.payload.images4,
       };
       // console.log(
       //   action.payload,

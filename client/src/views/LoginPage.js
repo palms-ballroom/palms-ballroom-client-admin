@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { actionDoLogin } from "../store/actions";
-import logo from "../PALMS.png";
+import logo from "../Logo-Palms.png";
+
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -36,10 +38,24 @@ export default function LoginPage() {
         console.log("Success:", result);
         localStorage.setItem("access_token", result.token);
         localStorage.setItem("id", result.id);
-        navigate("/");
+        if (result.role === "Customer") {
+          localStorage.clear();
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Error: Bad Request",
+          });
+        } else {
+          navigate("/");
+        }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error,
+        });
       });
   };
 
@@ -97,23 +113,8 @@ export default function LoginPage() {
               <div>
                 <button
                   type="submit"
-                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#023d3a] hover:bg-[#246b71] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <svg
-                      className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
                   Sign in
                 </button>
               </div>

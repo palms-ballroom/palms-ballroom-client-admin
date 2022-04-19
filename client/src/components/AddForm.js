@@ -8,6 +8,8 @@ import CardHeader from "@material-tailwind/react/CardHeader";
 import CardBody from "@material-tailwind/react/CardBody";
 import Input from "@material-tailwind/react/Input";
 
+import Swal from "sweetalert2";
+
 export default function AddForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -22,7 +24,6 @@ export default function AddForm() {
     images1: "",
     images2: "",
     images3: "",
-    images4: "",
   });
 
   const formAddBallroomHandler = (event) => {
@@ -53,6 +54,10 @@ export default function AddForm() {
       })
       .then((result) => {
         console.log("Success:", result);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+        });
         navigate("/");
       })
       .catch((error) => {
@@ -133,7 +138,11 @@ export default function AddForm() {
       <div className="sm:px-0 md:px-0 lg:px-0 xl:px-48 2xl:48 h-auto pt-10">
         <div className="mx-auto max-w-full">
           <Card>
-            <CardHeader color="green" contentPosition="none">
+            <CardHeader
+              className="bg-[#023d3a]"
+              color={"#023d3a"}
+              contentPosition="left"
+            >
               <div className="w-full flex items-center justify-between">
                 <h2 className="text-white text-2xl">Add Ballroom</h2>
               </div>
@@ -215,7 +224,7 @@ export default function AddForm() {
                       placeholder="Main Image"
                     />
                   </div>
-                  <div className="w-3/12 pr-2 mb-10 font-light">
+                  <div className="w-4/12 pr-2 mb-10 font-light">
                     <Input
                       value={formAddBallroom.images1}
                       onChange={formAddBallroomHandler}
@@ -227,7 +236,7 @@ export default function AddForm() {
                       placeholder="Image"
                     />
                   </div>
-                  <div className="w-3/12 px-2 mb-10 font-light">
+                  <div className="w-4/12 px-2 mb-10 font-light">
                     <Input
                       value={formAddBallroom.images2}
                       onChange={formAddBallroomHandler}
@@ -239,7 +248,7 @@ export default function AddForm() {
                       placeholder="Image"
                     />
                   </div>
-                  <div className="w-3/12 px-2 mb-10 font-light">
+                  <div className="w-4/12 px-2 mb-10 font-light">
                     <Input
                       value={formAddBallroom.images3}
                       onChange={formAddBallroomHandler}
@@ -251,22 +260,10 @@ export default function AddForm() {
                       placeholder="Image"
                     />
                   </div>
-                  <div className="w-3/12 pl-2 mb-10 font-light">
-                    <Input
-                      value={formAddBallroom.images4}
-                      onChange={formAddBallroomHandler}
-                      name="images4"
-                      type="url"
-                      color="lightBlue"
-                      size="regular"
-                      outline={true}
-                      placeholder="Image"
-                    />
-                  </div>
                 </div>
                 <button
                   type="submit"
-                  className="text-white bg-[#43a047] hover:bg-[#bb9e80] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-25 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center"
+                  className="text-white bg-[#023d3a] hover:bg-[#246b71] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-25 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center"
                 >
                   Submit
                 </button>
