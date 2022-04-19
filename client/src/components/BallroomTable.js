@@ -39,7 +39,11 @@ export default function BallroomTable() {
         <div className="grid grid-cols-1 px-4 mb-16">
           {modalOn && <Modal setModalOn={setModalOn} />}
           <Card>
-            <CardHeader color="green" contentPosition="left">
+            <CardHeader
+              className="bg-[#023d3a]"
+              color={"#023d3a"}
+              contentPosition="left"
+            >
               <h2 className="text-white text-2xl">Card Table</h2>
             </CardHeader>
             <CardBody>

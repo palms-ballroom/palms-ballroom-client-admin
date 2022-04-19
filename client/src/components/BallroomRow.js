@@ -6,6 +6,8 @@ import {
   fetchBallroomById,
 } from "../store/actions";
 
+import Swal from "sweetalert2";
+
 export default function BallroomRow({ ballroom, setModalOn }) {
   // console.log(ballroom, `..............................................`);
   const dispatch = useDispatch();
@@ -21,6 +23,10 @@ export default function BallroomRow({ ballroom, setModalOn }) {
       })
       .then((result) => {
         console.log("Success:", result);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+        });
         dispatch(fetchBallrooms());
       })
       .catch((error) => {
@@ -90,7 +96,7 @@ export default function BallroomRow({ ballroom, setModalOn }) {
         <button
           onClick={showImages}
           type="button"
-          className="focus:outline-none text-white bg-[#bb9e80] hover:bg-[#43a047] focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mx-auto mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          className="focus:outline-none text-white bg-[#023d3a] hover:bg-[#246b71] focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mx-auto mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
         >
           Show images
         </button>
@@ -100,7 +106,7 @@ export default function BallroomRow({ ballroom, setModalOn }) {
           <button
             onClick={showFormEdit}
             href="#"
-            className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:focus:ring-yellow-900 w-full"
+            className="text-white bg-[#058079] hover:bg-[#045c57] focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:focus:ring-yellow-900 w-full"
           >
             Edit
           </button>
@@ -109,7 +115,7 @@ export default function BallroomRow({ ballroom, setModalOn }) {
           <button
             onClick={doDelete}
             href="#"
-            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-full"
+            className="text-white bg-[#a86e49] hover:bg-[#c4744a] focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-full"
           >
             Delete
           </button>

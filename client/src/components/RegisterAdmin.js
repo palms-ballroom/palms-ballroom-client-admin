@@ -9,6 +9,8 @@ import CardHeader from "@material-tailwind/react/CardHeader";
 import CardBody from "@material-tailwind/react/CardBody";
 import Input from "@material-tailwind/react/Input";
 
+import Swal from "sweetalert2";
+
 export default function RegisterAdmin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ export default function RegisterAdmin() {
     password: "",
     phoneNumber: "",
     address: "",
+    imageUrl: "",
   });
 
   const formRegisterHandler = (event) => {
@@ -46,6 +49,11 @@ export default function RegisterAdmin() {
       })
       .then((result) => {
         console.log("Success:", result);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: result.msg,
+        });
         navigate("/");
       })
       .catch((error) => {
@@ -124,7 +132,11 @@ export default function RegisterAdmin() {
       <div className="sm:px-0 md:px-0 lg:px-0 xl:px-48 2xl:48 h-auto pt-10">
         <div className="mx-auto max-w-full">
           <Card>
-            <CardHeader color="green" contentPosition="none">
+            <CardHeader
+              className="bg-[#023d3a]"
+              color={"#023d3a"}
+              contentPosition="left"
+            >
               <div className="w-full flex items-center justify-between">
                 <h2 className="text-white text-2xl">Register Admin</h2>
               </div>
@@ -192,10 +204,22 @@ export default function RegisterAdmin() {
                       placeholder="Address"
                     />
                   </div>
+                  <div className="w-full mb-10 font-light">
+                    <Input
+                      value={formRegister.imageUrl}
+                      onChange={formRegisterHandler}
+                      name="imageUrl"
+                      type="url"
+                      color="lightBlue"
+                      size="regular"
+                      outline={true}
+                      placeholder="Image Url"
+                    />
+                  </div>
                 </div>
                 <button
                   type="submit"
-                  className="text-white bg-[#43a047] hover:bg-[#bb9e80] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-25 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center"
+                  className="text-white bg-[#023d3a] hover:bg-[#246b71] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-25 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center"
                 >
                   Submit
                 </button>

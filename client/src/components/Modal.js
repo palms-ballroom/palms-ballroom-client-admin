@@ -25,13 +25,13 @@ export default function Modal({ setModalOn }) {
           <div className="flex gap-5 justify-center pb-5">
             <div className="max-w-6xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
               {
-                <img
-                  className="p-8 rounded-t-lg"
-                  src={mainImage}
-                  alt="ballroom"
-                  height="300"
-                  width="300"
-                />
+                <div className="h-[250px] w-[250px]">
+                  <img
+                    className="p-8 rounded-t-lg h-full w-full"
+                    src={mainImage}
+                    alt="ballroom"
+                  />
+                </div>
               }
             </div>
           </div>
@@ -57,13 +57,13 @@ export default function Modal({ setModalOn }) {
                 />
               )}
               {!imagesLoading && (
-                <img
-                  className="p-8 rounded-t-lg"
-                  src={images.images1}
-                  alt="ballroom"
-                  height="300"
-                  width="300"
-                />
+                <div className="h-[200px] w-[200px]">
+                  <img
+                    className="p-8 rounded-t-lg h-full w-full"
+                    src={images.images1}
+                    alt="ballroom"
+                  />
+                </div>
               )}
             </div>
             <div className="max-w-6xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -76,13 +76,13 @@ export default function Modal({ setModalOn }) {
                 />
               )}
               {!imagesLoading && (
-                <img
-                  className="p-8 rounded-t-lg"
-                  src={images.images2}
-                  alt="ballroom"
-                  height="300"
-                  width="300"
-                />
+                <div className="h-[200px] w-[200px]">
+                  <img
+                    className="p-8 rounded-t-lg h-full w-full"
+                    src={images.images2}
+                    alt="ballroom"
+                  />
+                </div>
               )}
             </div>
             <div className="max-w-6xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -95,32 +95,13 @@ export default function Modal({ setModalOn }) {
                 />
               )}
               {!imagesLoading && (
-                <img
-                  className="p-8 rounded-t-lg"
-                  src={images.images3}
-                  alt="ballroom"
-                  height="300"
-                  width="300"
-                />
-              )}
-            </div>
-            <div className="max-w-6xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-              {imagesLoading && (
-                <MutatingDots
-                  height="100"
-                  width="100"
-                  color="grey"
-                  ariaLabel="loading"
-                />
-              )}
-              {!imagesLoading && (
-                <img
-                  className="p-8 rounded-t-lg"
-                  src={images.images4}
-                  alt="ballroom"
-                  height="300"
-                  width="300"
-                />
+                <div className="h-[200px] w-[200px]">
+                  <img
+                    className="p-8 rounded-t-lg h-full w-full"
+                    src={images.images3}
+                    alt="ballroom"
+                  />
+                </div>
               )}
             </div>
           </div>

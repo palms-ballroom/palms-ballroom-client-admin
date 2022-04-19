@@ -53,7 +53,6 @@ export const fetchBallroomById = (hotelApiId) => {
             images1: data.images1,
             images2: data.images2,
             images3: data.images3,
-            images4: data.images4,
           })
         );
       })
@@ -86,9 +85,8 @@ export const postBallroomIncludesImages = (payload) => {
         pricePerDay: payload.formAddBallroom.pricePerDay,
         mainImg: payload.formAddBallroom.mainImg,
         images1: payload.formAddBallroom.images1,
-        images2: payload.formAddBallroom.images3,
+        images2: payload.formAddBallroom.images2,
         images3: payload.formAddBallroom.images3,
-        images4: payload.formAddBallroom.images4,
         clicked: 0,
         userId: +userId,
       }),
@@ -133,9 +131,8 @@ export const putBallroomsIncludesImages = ({
         pricePerDay: ballroom.pricePerDay,
         mainImg: ballroom.mainImg,
         images1: images.images1,
-        images2: images.images3,
+        images2: images.images2,
         images3: images.images3,
-        images4: images.images4,
         clicked: ballroom.clicked,
         userId: +userId,
       }),
@@ -145,7 +142,7 @@ export const putBallroomsIncludesImages = ({
 
 export const actionDoLogin = (formLogin) => {
   return (dispatch, getState) => {
-    return fetch("http://localhost:3001/login", {
+    return fetch("http://localhost:4002/login", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +154,8 @@ export const actionDoLogin = (formLogin) => {
 
 export const actionDoRegister = (payload) => {
   return (dispatch, getState) => {
-    return fetch("http://localhost:3001/register", {
+    console.log(payload, `......................`);
+    return fetch("http://localhost:4002/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -169,6 +167,7 @@ export const actionDoRegister = (payload) => {
         password: payload.formRegister.password,
         phoneNumber: payload.formRegister.phoneNumber,
         address: payload.formRegister.address,
+        imageUrl: payload.formRegister.imageUrl,
         role: "Admin",
       }),
     });
