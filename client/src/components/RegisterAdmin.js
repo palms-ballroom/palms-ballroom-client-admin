@@ -34,7 +34,7 @@ export default function RegisterAdmin() {
 
   const doRegister = (event) => {
     event.preventDefault();
-    console.log(formRegister);
+    // console.log(formRegister);
     dispatch(
       actionDoRegister({
         formRegister,
@@ -48,7 +48,7 @@ export default function RegisterAdmin() {
         return response.json();
       })
       .then((result) => {
-        console.log("Success:", result);
+        // console.log("Success:", result);
         Swal.fire({
           icon: "success",
           title: "Success",

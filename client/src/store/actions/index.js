@@ -46,7 +46,7 @@ export const fetchBallroomById = (hotelApiId) => {
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         dispatch(commitBallroomsById(data));
         dispatch(
           commitFetchedImagesById({
@@ -133,7 +133,7 @@ export const putBallroomsIncludesImages = ({
         images1: images.images1,
         images2: images.images2,
         images3: images.images3,
-        clicked: ballroom.clicked,
+        // clicked: ballroom.clicked,
         userId: +userId,
       }),
     });
@@ -154,7 +154,7 @@ export const actionDoLogin = (formLogin) => {
 
 export const actionDoRegister = (payload) => {
   return (dispatch, getState) => {
-    console.log(payload, `......................`);
+    // console.log(payload, `......................`);
     return fetch("http://localhost:4002/register", {
       method: "POST",
       headers: {

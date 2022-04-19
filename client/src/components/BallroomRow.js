@@ -22,7 +22,7 @@ export default function BallroomRow({ ballroom, setModalOn }) {
         return response.json();
       })
       .then((result) => {
-        console.log("Success:", result);
+        // console.log("Success:", result);
         Swal.fire({
           icon: "success",
           title: "Success",
@@ -39,7 +39,7 @@ export default function BallroomRow({ ballroom, setModalOn }) {
 
   const showImages = (event) => {
     event.preventDefault();
-    console.log(`show images by id ${ballroom.hotelApiId}`);
+    // console.log(`show images by id ${ballroom.hotelApiId}`);
     dispatch(fetchBallroomById(ballroom.hotelApiId));
     setModalOn(true);
   };
