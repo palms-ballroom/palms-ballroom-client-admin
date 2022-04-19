@@ -26,7 +26,7 @@ export default function EditForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(ballroom, `????????????????????????????????????????????/`);
+  // console.log(ballroom, `????????????????????????????????????????????/`);
 
   const params = useParams();
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function EditForm() {
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         Swal.fire({
           icon: "success",
           title: "Success",
@@ -158,7 +158,7 @@ export default function EditForm() {
             <CardBody>
               <form onSubmit={doEdit}>
                 <div className="flex flex-wrap mt-10">
-                  <div className="w-3/12 pr-2 mb-10 font-light">
+                  <div className="w-4/12 pr-2 mb-10 font-light">
                     <Input
                       type="number"
                       color="lightBlue"
@@ -170,7 +170,7 @@ export default function EditForm() {
                       name="hotelApiId"
                     />
                   </div>
-                  <div className="w-3/12 px-2 mb-10 font-light">
+                  <div className="w-4/12 px-2 mb-10 font-light">
                     <Input
                       type="text"
                       color="lightBlue"
@@ -182,7 +182,7 @@ export default function EditForm() {
                       name="name"
                     />
                   </div>
-                  <div className="w-3/12 pl-2 mb-10 font-light">
+                  <div className="w-4/12 pl-2 mb-10 font-light">
                     <Input
                       value={ballroom.city}
                       onChange={formEditBallroomHandler}
@@ -192,18 +192,6 @@ export default function EditForm() {
                       size="regular"
                       outline={true}
                       placeholder="City"
-                    />
-                  </div>
-                  <div className="w-3/12 px-2 mb-10 font-light">
-                    <Input
-                      value={ballroom.clicked}
-                      onChange={formEditBallroomHandler}
-                      name="clicked"
-                      type="text"
-                      color="lightBlue"
-                      size="regular"
-                      outline={true}
-                      placeholder="Clicked"
                     />
                   </div>
                   <div className="w-full lg:w-6/12 lg:pr-4 mb-10 font-light">

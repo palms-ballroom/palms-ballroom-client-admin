@@ -53,7 +53,7 @@ export default function AddForm() {
         return response.json();
       })
       .then((result) => {
-        console.log("Success:", result);
+        // console.log("Success:", result);
         Swal.fire({
           icon: "success",
           title: "Success",

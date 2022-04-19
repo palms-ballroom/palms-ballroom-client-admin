@@ -25,7 +25,7 @@ export default function LoginPage() {
 
   const doLogin = (event) => {
     event.preventDefault();
-    console.log(formLogin);
+    // console.log(formLogin);
 
     dispatch(actionDoLogin(formLogin))
       .then((response) => {
@@ -35,7 +35,7 @@ export default function LoginPage() {
         return response.json();
       })
       .then((result) => {
-        console.log("Success:", result);
+        // console.log("Success:", result);
         localStorage.setItem("access_token", result.token);
         localStorage.setItem("id", result.id);
         if (result.role === "Customer") {
@@ -50,7 +50,7 @@ export default function LoginPage() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         Swal.fire({
           icon: "error",
           title: "Oops...",
