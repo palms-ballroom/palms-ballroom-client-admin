@@ -115,7 +115,7 @@ export default function BallroomRow({ ballroom, setModalOn }) {
           <button
             onClick={doDelete}
             href="#"
-            className="text-white bg-[#a86e49] hover:bg-[#c4744a] focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-full"
+            className="text-white bg-red-900  hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-full"
           >
             Delete
           </button>
