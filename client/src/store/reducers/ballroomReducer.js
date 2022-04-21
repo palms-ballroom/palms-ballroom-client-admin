@@ -31,7 +31,6 @@ export default function ballroomReducer(state = initialState, action) {
       return { ...state, ballrooms: action.payload };
 
     case COMMIT_BALLROOMSBYID:
-      // console.log(action, `^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`);
       const newBallroom = {
         hotelApiId: action.payload.hotelApiId,
         name: action.payload.name,

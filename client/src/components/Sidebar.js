@@ -22,7 +22,6 @@ export default function Sidebar() {
         <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
           <img
             src={logo}
-            // className="w-full h-full rounded-lg shadow-lg"
             alt="Flowbite Logo"
           />
           <div className="flex flex-col">

@@ -1,4 +1,3 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
