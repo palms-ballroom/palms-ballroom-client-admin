@@ -5,7 +5,6 @@ import {
   fetchBallrooms,
   fetchBallroomById,
 } from "../store/actions";
-
 import Swal from "sweetalert2";
 
 export default function BallroomRow({ ballroom, setModalOn }) {
@@ -59,18 +58,6 @@ export default function BallroomRow({ ballroom, setModalOn }) {
 
   return (
     <tr>
-      {/* <td className="p-4 w-4">
-        <div className="flex items-center">
-          <input
-            id="checkbox-search-1"
-            type="checkbox"
-            className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label htmlFor="checkbox-search-1" className="sr-only">
-            checkbox
-          </label>
-        </div>
-      </td> */}
       <td className="py-4 px-6 text-sm font-medium text-gray-900 text-left whitespace-nowrap dark:text-white">
         {ballroom.name}
       </td>
@@ -86,12 +73,6 @@ export default function BallroomRow({ ballroom, setModalOn }) {
       <td className="py-4 px-6 text-sm font-medium text-gray-500 text-left whitespace-nowrap dark:text-white">
         {ballroom.clicked}
       </td>
-      {/* <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-        {ballroom.User.username}
-      </td> */}
-      {/* <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-        <img src={ballroom.mainImg} alt="Sushi" width="300" height="100" />
-      </td> */}
       <td className="py-4 px-6 text-sm font-medium text-gray-500 text-left whitespace-nowrap dark:text-white">
         <button
           onClick={showImages}
@@ -121,15 +102,6 @@ export default function BallroomRow({ ballroom, setModalOn }) {
           </button>
         </div>
       </td>
-      {/* <td className="py-5 px-3 text-sm font-medium text-right whitespace-nowrap">
-        <button
-          onClick={doDelete}
-          href="#"
-          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-        >
-          Delete
-        </button>
-      </td> */}
     </tr>
   );
 }

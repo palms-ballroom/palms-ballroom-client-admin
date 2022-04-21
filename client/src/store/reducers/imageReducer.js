@@ -29,14 +29,7 @@ export default function imageReducer(state = initialState, action) {
         images2: action.payload.images2,
         images3: action.payload.images3,
       };
-      // console.log(
-      //   action.payload,
-      //   `..............................................action.payload`
-      // );
-      // for (let i = 1; i < action.payload.length; i++) {
-      //   const image = action.payload[i];
-      //   newImages[`images${i}`] = image.imgUrl;
-      // }
+
       return {
         ...state,
         images: newImages,

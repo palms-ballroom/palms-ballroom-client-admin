@@ -9,7 +9,7 @@ import {
 export const fetchBallrooms = () => {
   return (dispatch, getState) => {
     dispatch(commitLoadingBallrooms(true));
-    fetch("http://localhost:4001/ballroom", {
+    fetch("https://palms-server-ballroom.herokuapp.com/ballroom", {
       method: "GET",
     })
       .then((response) => {
@@ -19,7 +19,6 @@ export const fetchBallrooms = () => {
         return response.json();
       })
       .then((result) => {
-        // console.log("Success:", result, `/////////////////`);
         dispatch(commitBallrooms(result));
       })
       .catch((error) => {
@@ -33,10 +32,8 @@ export const fetchBallrooms = () => {
 
 export const fetchBallroomById = (hotelApiId) => {
   return (dispatch, getState) => {
-    // console.log(hotelApiId, `////////////////////////////`);
     dispatch(commitLoadingImages(true));
-    // dispatch(commitLoadingBallrooms(true));
-    fetch(`http://localhost:4001/ballroom/${hotelApiId}`, {
+    fetch(`https://palms-server-ballroom.herokuapp.com/ballroom/${hotelApiId}`, {
       method: "GET", // or 'PUT'
     })
       .then((response) => {
@@ -46,7 +43,6 @@ export const fetchBallroomById = (hotelApiId) => {
         return response.json();
       })
       .then((data) => {
-        // console.log("Success:", data);
         dispatch(commitBallroomsById(data));
         dispatch(
           commitFetchedImagesById({
@@ -61,7 +57,6 @@ export const fetchBallroomById = (hotelApiId) => {
       })
       .finally(() => {
         dispatch(commitLoadingImages(false));
-        // dispatch(commitLoadingBallrooms(false));
       });
   };
 };
@@ -69,9 +64,7 @@ export const fetchBallroomById = (hotelApiId) => {
 export const postBallroomIncludesImages = (payload) => {
   return (dispatch, getState) => {
     const userId = localStorage.getItem("id");
-    // console.log(payload, `////////////////////////////`);
-    // console.log(id, `////////////////////////////`);
-    return fetch("http://localhost:4001/ballroom", {
+    return fetch("https://palms-server-ballroom.herokuapp.com/ballroom", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,8 +89,7 @@ export const postBallroomIncludesImages = (payload) => {
 
 export const deleteBallroomsById = (hotelApiId) => {
   return (dispatch, getState) => {
-    // console.log(hotelApiId, `////////////////////////////////`);
-    return fetch(`http://localhost:4001/ballroom/${hotelApiId}`, {
+    return fetch(`https://palms-server-ballroom.herokuapp.com/ballroom/${hotelApiId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -114,10 +106,7 @@ export const putBallroomsIncludesImages = ({
 }) => {
   return (dispatch, getState) => {
     const userId = localStorage.getItem("id");
-    // console.log(ballroomId, `*************************************88`);
-    // console.log(images, `*************************************88`);
-    // console.log(ballroom, `*************************************88`);
-    return fetch(`http://localhost:4001/ballroom/${ballroomId}`, {
+    return fetch(`https://palms-server-ballroom.herokuapp.com/ballroom/${ballroomId}`, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -142,7 +131,7 @@ export const putBallroomsIncludesImages = ({
 
 export const actionDoLogin = (formLogin) => {
   return (dispatch, getState) => {
-    return fetch("http://localhost:4002/login", {
+    return fetch("https://palms-server-user.herokuapp.com/login", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -154,8 +143,7 @@ export const actionDoLogin = (formLogin) => {
 
 export const actionDoRegister = (payload) => {
   return (dispatch, getState) => {
-    // console.log(payload, `......................`);
-    return fetch("http://localhost:4002/register", {
+    return fetch("https://palms-server-user.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,19 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { postBallroomIncludesImages } from "../store/actions";
-
 import Card from "@material-tailwind/react/Card";
 import CardHeader from "@material-tailwind/react/CardHeader";
 import CardBody from "@material-tailwind/react/CardBody";
 import Input from "@material-tailwind/react/Input";
-
 import Swal from "sweetalert2";
 
 export default function AddForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [formAddBallroom, setFormAddBallroom] = useState({
     hotelApiId: "",
     name: "",
@@ -35,8 +32,6 @@ export default function AddForm() {
     setFormAddBallroom(newInput);
   };
 
-  // console.log(formAddBallroom);
-
   const doAddForm = (event) => {
     event.preventDefault();
     // console.log(event);
@@ -53,7 +48,6 @@ export default function AddForm() {
         return response.json();
       })
       .then((result) => {
-        // console.log("Success:", result);
         Swal.fire({
           icon: "success",
           title: "Success",
@@ -61,7 +55,6 @@ export default function AddForm() {
         navigate("/");
       })
       .catch((error) => {
-        // console.log(error, `.................`);
         console.error("Error:", error);
       });
   };
@@ -73,36 +66,8 @@ export default function AddForm() {
         aria-label="Breadcrumb"
       >
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
-          {/* <li className="inline-flex items-center">
-            <button
-              href="#"
-              className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-            >
-              <svg
-                className="mr-2 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
-              </svg>
-              Login
-            </button>
-          </li> */}
           <li>
             <div className="flex items-center">
-              {/* <svg
-                className="w-6 h-6 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                ></path>
-              </svg> */}
               <Link
                 to="/home"
                 href="#"
@@ -272,164 +237,6 @@ export default function AddForm() {
           </Card>
         </div>
       </div>
-
-      {/* <div className="h-full w-full py-5">
-        <div className="bg-white h-full w-full rounded-md px-20 pt-12">
-          <div className="w-full h-full">
-            <form
-              onSubmit={doAddForm}
-              id="formAddBallroom"
-              className="h-full w-full"
-            >
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.name}
-                  onChange={formAddBallroomHandler}
-                  id="add-ballroom-name"
-                  type="text"
-                  name="name"
-                  className="align-left block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="name"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-10 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Ballroom's Name
-                </label>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <select
-                  value={formAddBallroom.status}
-                  onChange={formAddBallroomHandler}
-                  name="status"
-                  id="add-status"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                >
-                  <option value="">Choose Status</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                </select>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.price}
-                  onChange={formAddBallroomHandler}
-                  id="add-price"
-                  type="number"
-                  name="price"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="price"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Price
-                </label>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.mainImg}
-                  onChange={formAddBallroomHandler}
-                  id="add-image-url"
-                  type="url"
-                  name="mainImg"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="mainImg"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Main Image Url
-                </label>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.images1}
-                  onChange={formAddBallroomHandler}
-                  id="edit-image-url"
-                  type="url"
-                  name="images1"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="floating_first_name"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Image Url Additional 1
-                </label>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.images2}
-                  onChange={formAddBallroomHandler}
-                  id="edit-image-url"
-                  type="url"
-                  name="images2"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="floating_first_name"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Image Url Additional 2
-                </label>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.images3}
-                  onChange={formAddBallroomHandler}
-                  id="edit-image-url"
-                  type="url"
-                  name="images3"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="floating_first_name"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Image Url Additional 3
-                </label>
-              </div>
-              <div className="relative z-0 mb-6 w-full group">
-                <input
-                  value={formAddBallroom.images4}
-                  onChange={formAddBallroomHandler}
-                  id="edit-image-url"
-                  type="url"
-                  name="images3"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
-                />
-                <label
-                  htmlFor="floating_first_name"
-                  className="absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Image Url Additional 4
-                </label>
-              </div>
-              <button
-                type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

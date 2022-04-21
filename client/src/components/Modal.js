@@ -36,17 +36,6 @@ export default function Modal({ setModalOn }) {
             </div>
           </div>
           <div className="flex gap-5">
-            {/* <div className="max-w-6xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-              {
-                <img
-                  className=" rounded-lg"
-                  src={mainImage}
-                  alt="ballroom"
-                  height="300"
-                  width="300"
-                />
-              }
-            </div> */}
             <div className="max-w-6xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
               {imagesLoading && (
                 <MutatingDots

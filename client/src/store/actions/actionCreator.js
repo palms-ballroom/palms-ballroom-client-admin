@@ -24,12 +24,10 @@ export const commitBallrooms = (payload) => {
 };
 
 export const commitBallroomsById = (payload) => {
-  // console.log(payload, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
   return { type: COMMIT_BALLROOMSBYID, payload };
 };
 
 export const commitFetchedImagesById = (payload) => {
-  // console.log(payload, `..............................................payload`);
   return { type: COMMIT_FETCHEDIMAGESBYID, payload };
 };
 
